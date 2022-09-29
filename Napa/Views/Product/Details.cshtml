@@ -1,0 +1,66 @@
+﻿@model Product;
+
+@{
+    ViewData["Title"] = "Details of Product";
+}
+<header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Product" asp-action="Index">Napa</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Users">Users</a>
+                        </li>
+                    </ul>
+                </div>
+                <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Registration</a>
+                        </li>
+                <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                        </li>
+            </div>
+        </nav>
+    </header>
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <p>
+            <h4>Details for @Model.Title </h4>
+        </p>
+
+        <div class="row">
+            <div class="col-md-8 offset-2">
+
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" readonly/>
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Quantiy" class="control-label"></label>
+                        <input asp-for="Quantiy" class="form-control" readonly/>
+                        <span asp-validation-for="Quantiy" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label"></label>
+                        <input asp-for="Price" class="form-control" readonly/>
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <a class="btn btn-outline-success" asp-controller="Product" asp-action="Edit" asp-route-id="@Model.Id">Update</a>
+                        <a class="btn btn-outline-secondary" asp-action="Index">Cancel</a>
+                        <a asp-controller="Product" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger"><i class="bi bi-trash"></i>Delete</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
